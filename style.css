@@ -1,0 +1,126 @@
+h1{
+    text-align: left;
+    color: #f3f5f0;
+    font: 400 100px/1.3 'Arizonia', Helvetica, sans-serif;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1); 
+}
+
+body {
+  font-family: 'Staatliches', cursive;
+  background-color: #1b1a19;
+}
+
+/* It's supposed to look like a tree diagram */
+.tree, .tree ul, .tree li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.tree {
+    margin: 0 0 1em;
+    text-align: center;
+}
+.tree, .tree ul {
+    display: table;
+}
+.tree ul {
+  width: 100%;
+}
+    .tree li {
+        display: table-cell;
+        padding: .5em 0;
+        vertical-align: top;
+    }
+        /* _________ */
+        .tree li:before {
+            outline: solid 1px #666;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .tree li:first-child:before {left: 50%;}
+        .tree li:last-child:before {right: 50%;}
+
+        .tree code, .tree span {
+            border: solid .1em rgb(228, 223, 223);
+            border-radius: .2em;
+            display: inline-block;
+            margin: 0 .2em .5em;
+            padding: .2em .5em;
+            position: relative;
+            box-shadow: rgb(165, 102, 7);
+        }
+        /* If the tree represents DOM structure */
+        .tree code {
+            font-family: monaco, Consolas, 'Lucida Console', monospace;
+            background-color: #f9c280;
+            opacity: 0.8;
+        }
+
+            /* | */
+            .tree ul:before,
+            .tree code:before,
+            .tree span:before {
+                outline: solid 1px rgb(228, 223, 223);
+                content: "";
+                height: .5em;
+                left: 50%;
+                position: absolute;
+            }
+            .tree ul:before {
+                top: -.5em;
+            }
+            .tree code:before,
+            .tree span:before {
+                top: -.55em;
+            }
+
+/* The root node doesn't connect upwards */
+.tree > li {margin-top: 0;}
+    .tree > li:before,
+    .tree > li:after,
+    .tree > li > code:before,
+    .tree > li > span:before {
+      outline: none;
+    }
+
+/* Transition for Button: Edit, Delete, and Add*/
+    .button{
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f3f5f0;
+        border: none;
+        color: rgb(8, 8, 8);
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .button span{
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+    .button:hover span {
+        padding-right: 25px;
+    }
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
