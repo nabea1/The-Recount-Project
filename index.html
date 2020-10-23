@@ -14,7 +14,9 @@
   <ul class="tree">
     
       <ul>
-        <li><code>Amelie</code>
+        <li><code><div class="popup" onclick="myFunction()">Amelia
+            <span class="popuptext" id="myPopup">Born in 1966, in Chicago</span>
+          </div></code>
           <ul>
             <li><code>Roxanne(hey it's you)</code></li>
           </ul>
@@ -50,7 +52,13 @@
 <button class="button" style="vertical-align: middle"><span>Delete</span></button>
 <button class="button" style="vertical-align: middle"><span>Add</span></button>
 
-
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    </script>
   
 </body>
 </html>
